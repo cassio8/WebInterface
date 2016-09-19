@@ -35,7 +35,7 @@ fechar($db);
 
 <table class="table table-bordered table-hover table-striped">
     <thead>
-        <tr>
+        <tr class="danger">
             <th>Codigo</th>
             <th>Nome</th>
             <th>Pontuação</th>

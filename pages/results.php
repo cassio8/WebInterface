@@ -56,7 +56,7 @@
                             <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <li><a href="index.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                             </li>
                         </ul>
                         <!-- /.dropdown-user -->
@@ -70,10 +70,10 @@
                         <ul class="nav" id="side-menu">
 
                             <li>
-                                <a href="index.html"><i class="fa fa-file-text-o"></i> Resultados</a>
+                                <a href="menu.html"><i class="fa fa-file-text-o"></i> Resultados</a>
                             </li>
                             <li>
-                                <a href=""><i class="fa fa-gamepad"></i> Versão Web do Jogo</a>
+                                <a href=""><i class="fa fa-gamepad"></i> Jogo</a>
                             </li>
 
                         </ul>
@@ -86,11 +86,12 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Resultados do jogo</h1>
+                        <h1>Resultados do jogo</h1>          
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
 
+                <br><br>
                 <!-- Usar para mostrar resultados -->
                 <div class="row">
                     <!-- /.panel-heading -->
@@ -104,7 +105,7 @@
 
                                     $db = conectar();
 
-                                    $sql = "SELECT nome FROM paciente";
+                                    $sql = "SELECT nome FROM paciente ORDER BY nome";
                                     $result = mysql_query($sql, $db);
                                     ?>
                                     <form class="form-inline" action = "buscarResultados.php" method="post">
