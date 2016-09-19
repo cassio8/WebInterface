@@ -48,7 +48,7 @@
                 <ul class="nav navbar-top-links navbar-right">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                            <i class="fa fa-user fa-fw" style="color: purple"></i> <i class="fa fa-caret-down" style="color: purple"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -70,10 +70,10 @@
                         <ul class="nav" id="side-menu">
 
                             <li>
-                                <a href="menu.html"><i class="fa fa-file-text-o"></i> Resultados</a>
+                                <a href="menu.html" style="color: purple"><i class="fa fa-file-text-o"></i> Resultados</a>
                             </li>
                             <li>
-                                <a href=""><i class="fa fa-gamepad"></i> Jogo</a>
+                                <a href="" style="color: purple"><i class="fa fa-gamepad"></i> Jogo</a>
                             </li>
 
                         </ul>

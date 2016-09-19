@@ -18,14 +18,15 @@ while($consulta = mysql_fetch_array($result)) {
    
 } 
 
-$sql2 = "SELECT pontuacao, resultado FROM resultado WHERE '$cod_paciente' = cod_paciente"; 
+$sql2 = "SELECT erros, omissoes, tempo_resposta FROM resultado WHERE '$cod_paciente' = cod_paciente"; 
 $result2 = mysql_query($sql2, $db); 
 
 
 while($consulta2 = mysql_fetch_array($result2)) {
     
-   $pontuacao = $consulta2[pontuacao];
-   $resultado = $consulta2[resultado];
+   $erros = $consulta2[erros];
+   $omissoes = $consulta2[omissoes];
+   $tempo = $consulta2[tempo_resposta];
    
 } 
 
@@ -38,16 +39,18 @@ fechar($db);
         <tr class="danger">
             <th>Codigo</th>
             <th>Nome</th>
-            <th>Pontuação</th>
-            <th>Resultado</th>
+            <th>Erros</th>
+            <th>Omissões</th>
+            <th>Tempo de resposta</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><?=$cod_paciente?></td>
             <td><?=$nome?></td>
-            <td><?=$pontuacao?></td>
-            <td><?=$resultado?></td>
+            <td><?=$erros?></td>
+            <td><?=$omissoes?></td>
+            <td><?=$tempo?></td>
         </tr>
     
     </tbody>
