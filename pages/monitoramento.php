@@ -1,13 +1,14 @@
-<?php include("menu.php");?>
+<?php include("menu.php"); ?>
 
-            <div id="page-wrapper">
+<div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Resultados do jogo</h1>          
+                        <h1>Monitoramento</h1> 
+                        Nesta sessão o jogo deverá estar em execução e perguntas aparecerão para o profissional responder em paralelo ao jogo.
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
-                
+
                 <br><br>
                 <!-- Usar para mostrar resultados -->
                 <div class="row">
@@ -22,13 +23,11 @@
 
                                     $db = conectar();
 
-                                    $cod_prof = $_SESSION["cod_usuario"];
-                                    
-                                    $sql = "SELECT nome FROM paciente WHERE cod_profissional = '$cod_prof' ORDER BY nome";
+                                    $sql = "SELECT nome FROM paciente ORDER BY nome";
                                     $result = mysql_query($sql, $db);
                                     ?>
-                                    <form class="form-inline" action = "buscarResultados.php" method="post">
-                                        
+                                    <form class="form-inline" action = "questoes.php" method="post">
+
                                         <label>Selecione o paciente</label><br/>
                                         <select name="nome" class='form-control' style="width: 75%; size: 8px">
                                                 <?php
@@ -47,7 +46,8 @@
                                             <option selected value=""></option>
                                         </select>
 
-                                        <button type="submit" class="btn btn-primary">Buscar</button>
+                                        <br><br>
+                                        <button type="submit" class="btn btn-primary">Iniciar Observação</button>
                                     </form>
 
                                     <br>
@@ -69,8 +69,3 @@
                     <!-- /#page-wrapper -->
 
                 </div>
-                <!-- /#wrapper -->
-                
-                </body>
-
-                </html>
