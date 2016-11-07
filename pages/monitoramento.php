@@ -3,7 +3,7 @@
 <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Monitoramento</h1> 
+                        <h2 class="page-header" id="navbar"><a class="anchorjs-link " href="#navbar" aria-label="Anchor link for: navbar" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; line-height: inherit; position: absolute; margin-left: -1em; padding-right: 0.5em;"></a>Monitoramento</h2> 
                         Nesta sessão o jogo deverá estar em execução e perguntas aparecerão para o profissional responder em paralelo ao jogo.
                     </div>
                     <!-- /.col-lg-12 -->
@@ -23,10 +23,12 @@
 
                                     $db = conectar();
 
-                                    $sql = "SELECT nome FROM paciente ORDER BY nome";
+                                    $cod_prof = $_SESSION["cod_usuario"];
+                                    
+                                    $sql = "SELECT nome FROM paciente WHERE cod_profissional = '$cod_prof' ORDER BY nome";
                                     $result = mysql_query($sql, $db);
                                     ?>
-                                    <form class="form-inline" action = "questoes.php" method="post">
+                                    <form class="form-inline" action = "telaQuestoes.php" method="post">
 
                                         <label>Selecione o paciente</label><br/>
                                         <select name="nome" class='form-control' style="width: 75%; size: 8px">
