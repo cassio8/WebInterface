@@ -1,4 +1,4 @@
-<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <?php
 
 include("../controleEstado.php");
@@ -27,14 +27,23 @@ while($consulta = mysql_fetch_array($consultaCod)) {
 
     $cod_paciente = $consulta[cod_paciente];
 }
+
+if($resp6 == "sim")  {
+    
+    $score = 1;
+    
+}  else  {
+    
+    $score = 0;
+}
                                     
-$inseriRespostas = "INSERT INTO monitoramento VALUES (NULL, '$cod_paciente', 6, '$resp6')"; 
+$inseriRespostas = "INSERT INTO monitoramento VALUES (NULL, '$cod_paciente', 6, '$score', '$resp6')"; 
 $result = mysql_query($inseriRespostas);
 
 if($result)  {
 
-    echo("<br>Todas as respostas foram inseridas com sucesso!");
-
+    echo("<font color='green'>Todas as respostas foram inseridas com sucesso!</font><br>");
+    echo("<a href='../menu.php'><input type='button' class='btn btn-primary' value='Voltar'></a>");
 }  else  {
 
     echo("<br>ERRO ao realizar a incercao!!!");

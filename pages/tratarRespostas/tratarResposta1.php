@@ -1,4 +1,4 @@
-<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <?php
 
 include("../controleEstado.php");
@@ -16,7 +16,7 @@ if($estado == $estadoSeguinte)  {
         
         $estado = estadoBanco();
     }
-    
+    //item 47 ADI
     ?>
         <label>Pergunta 2</label><br/>
             <input type="hidden" name="resposta1" value="sim" checked><br>
@@ -74,13 +74,22 @@ while($consulta = mysql_fetch_array($consultaCod)) {
 
     $cod_paciente = $consulta[cod_paciente];
 }
+
+if($resp1 == "sim")  {
+    
+    $score = 0;
+    
+}  else  {
+    
+    $score = 1;
+}
                                     
-$inseriRespostas = "INSERT INTO monitoramento VALUES (NULL, '$cod_paciente', 1, '$resp1')"; 
+$inseriRespostas = "INSERT INTO monitoramento VALUES (NULL, '$cod_paciente', 1, '$score', '$resp1')"; 
 $result = mysql_query($inseriRespostas);
 
 if($result)  {
 
-    echo("<br>Respostas salvas com sucesso!");
+    echo("<br>Resposta 1 salva com sucesso!");
 
 }  else  {
 

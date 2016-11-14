@@ -1,4 +1,4 @@
-<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <?php
 
 include("../controleEstado.php");
@@ -16,7 +16,7 @@ if($estado == $estadoSeguinte)  {
         
         $estado = estadoBanco();
     }
-    
+        //item 72 ADI
         ?>
             <label>Pergunta 4</label><br/>
                 <input type="hidden" name="resposta1" value="sim" checked><br>
@@ -26,7 +26,7 @@ if($estado == $estadoSeguinte)  {
          <?php    
         ?>
                 <form action="tratarResposta4.php" method="POST">  
-                <label>A crianca nunca se interessa pelos objetos?</label><br/>
+                <label>A crianca usa repetitivamente o mesmo objeto?</label><br/>
                 <input type="radio" name="resposta4" value="sim" checked> Sim<br>
                 <input type="radio" name="resposta4" value="nao"> Nao<br>
                 <input type="hidden" name="estado" value="4"><br>
@@ -46,7 +46,7 @@ if($estado == $estadoSeguinte)  {
          <?php    
         ?>
                 <form action="tratarResposta4.php" method="POST">  
-                <label>A crianca nunca se interessa pelos objetos?</label><br/>
+                <label>A crianca usa repetitivamente o mesmo objeto?</label><br/>
                 <input type="radio" name="resposta4" value="sim" checked> Sim<br>
                 <input type="radio" name="resposta4" value="nao"> Nao<br>
                 <input type="hidden" name="estado" value="4"><br>
@@ -75,13 +75,22 @@ while($consulta = mysql_fetch_array($consultaCod)) {
 
     $cod_paciente = $consulta[cod_paciente];
 }
+
+if($resp3 == "sim")  {
+    
+    $score = 0;
+    
+}  else  {
+    
+    $score = 1;
+}
                                     
-$inseriRespostas = "INSERT INTO monitoramento VALUES (NULL, '$cod_paciente', 3, '$resp3')"; 
+$inseriRespostas = "INSERT INTO monitoramento VALUES (NULL, '$cod_paciente', 3, '$score', '$resp3')"; 
 $result = mysql_query($inseriRespostas);
 
 if($result)  {
 
-    echo("<br>Respostas salvas com sucesso!");
+    echo("<br>Resposta 3 salva com sucesso!");
 
 }  else  {
 

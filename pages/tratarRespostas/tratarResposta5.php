@@ -1,4 +1,4 @@
-<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <?php
 
 include("../controleEstado.php");
@@ -16,7 +16,7 @@ if($estado == $estadoSeguinte)  {
         
         $estado = estadoBanco();
     }
-    
+        //item 74 ADI
         ?>
         <label>Pergunta 6</label><br/>
                 <input type="hidden" name="resposta1" value="sim" checked><br>
@@ -26,7 +26,7 @@ if($estado == $estadoSeguinte)  {
          <?php    
         ?>
                 <form action="tratarResposta6.php" method="POST">
-                <label>O olhar da crianca permanece fixo nos objetos da tela?</label><br/>
+                <label>A crianca reage negativamente a mudanca de objetos na tela?</label><br/>
                 <input type="radio" name="resposta6" value="sim" checked> Sim<br>
                 <input type="radio" name="resposta6" value="nao"> Nao<br>
                 <input type="hidden" name="estado" value="6"><br>
@@ -46,7 +46,7 @@ if($estado == $estadoSeguinte)  {
          <?php    
         ?>
                 <form action="tratarResposta6.php" method="POST">
-                <label>O olhar da crianca permanece fixo nos objetos da tela?</label><br/>
+                <label>A crianca reage negativamente a mudanca de objetos na tela?</label><br/>
                 <input type="radio" name="resposta6" value="sim" checked> Sim<br>
                 <input type="radio" name="resposta6" value="nao"> Nao<br>
                 <input type="hidden" name="estado" value="6"><br>
@@ -75,13 +75,22 @@ while($consulta = mysql_fetch_array($consultaCod)) {
 
     $cod_paciente = $consulta[cod_paciente];
 }
+
+if($resp5 == "sim")  {
+    
+    $score = 0;
+    
+}  else  {
+    
+    $score = 1;
+}
                                     
-$inseriRespostas = "INSERT INTO monitoramento VALUES (NULL, '$cod_paciente', 5, '$resp5')"; 
+$inseriRespostas = "INSERT INTO monitoramento VALUES (NULL, '$cod_paciente', 5, '$score', '$resp5')"; 
 $result = mysql_query($inseriRespostas);
 
 if($result)  {
 
-    echo("<br>Respostas salvas com sucesso!");
+    echo("<br>Resposta 5 salva com sucesso!");
 
 }  else  {
 

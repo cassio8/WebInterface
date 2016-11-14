@@ -80,6 +80,12 @@ while($consultaQ6 = mysql_fetch_array($quest6)) {
    $resp6 = $consultaQ6[resposta];
 } 
 
+//soma do score
+$consultaScore = "SELECT SUM(score) as soma FROM monitoramento WHERE '$cod_paciente' = cod_paciente";
+$somaFeita = mysql_query($consultaScore, $db); 
+$row = mysql_fetch_assoc($somaFeita);
+$soma = $row['soma'];
+
 fechar($db);
 
 ?>
@@ -90,7 +96,7 @@ fechar($db);
         
     <table class="table table-bordered table-hover table-striped">
         <thead>
-            <tr class="primary">
+            <tr class="danger">
                 <th>Codigo</th>
                 <th>Nome</th>
                 <th>Nome do Responsável</th>
@@ -159,8 +165,25 @@ fechar($db);
         </tbody>
     </table>
     <h3>Diagnóstico</h3>
-    <font color="red"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> A criança possui sinais de autismo!</font>
-    <font color="green"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> A criança NÃO possui sinais de autismo!</font>
+    <?php
+        //o jogo tera mais perguntas, poderemos relacionar melhor as respostas depois
+        //por questoes de visualizacao
+        if($soma >= 0 && $soma < 3 && $soma != null){
+    ?>
+            <h3><font color="green"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> A criança NÃO possui sinais de autismo!</font></h3>
+            
+    <?php        
+        }  else if($soma >= 3)  {
+    ?>        
+            <h3><font color="red"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> A criança possui sinais de autismo!</font></h3>
+    <?php        
+        }  else  {
+    ?>
+            <h3><font color="gray"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Este paciente não foi consultado!</font></h3>
+    <?php        
+        }  
+    
+    ?>
 </div>
 
 

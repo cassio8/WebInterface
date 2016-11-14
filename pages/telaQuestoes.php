@@ -45,20 +45,11 @@ if($nomeJogo == $nome)  {
    
     echo("<font color='green'>Sessao liberada!</font></br>");
     
-    /*$estado = estadoBanco();
-    
-    while($estado != 7)  {
-        
-        proximaPergunta($estado);
-        $estado = estadoBanco();
-        
-    }*/
-    
     while($estado != 1)  {
         
         $estado = estadoBanco();
     }
-    
+        //item 89 ADI
         ?>
         <label>Pergunta 1</label><br/>
                 <input type="hidden" name="resposta1" value="sim" checked><br>
